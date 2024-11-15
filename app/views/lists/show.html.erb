@@ -1,15 +1,22 @@
 <div class="container">
-  <p><%= "Hello, I'm a list named #{@list.name}." %></p>
-  <div class="card-trip">
+  <div class="cards">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="card-trip-infos" style="background-image: url(<%= bookmark.movie.poster_url %>)">
-        <div>
-          <h2><%= bookmark.movie.title %></h2>
-          <p><%= bookmark.comment %></p>
+      <div class="new_card flex flex-col">
+        <div class="card-category text-center" style="background-image: url(<%= bookmark.movie.poster_url %>)">
+          <div class="card-cover">
+            <%= bookmark.movie.title %>
+          </div>
+          <div id="x">
+            <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete} do %>
+              <i class="fas fa-times"></i>
+            <% end %>
+          </div>
         </div>
-        <h2 class="card-trip-pricing"><%= link_to 'DELETE', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Do you want to delete that bookmark?"} %></h2>
-      <% end %>
-    </div>
+        <div class="card-cover2">
+          <%= bookmark.comment %>
+        </div>
+      </div>
+    <% end %>
+    <%= render "bookmarks/form" %>
   </div>
-  <%= render 'bookmarks/form' %>
 </div>

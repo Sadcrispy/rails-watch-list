@@ -1,14 +1,17 @@
-<h1>Lists</h1>
 <div class="container">
-  <% @lists.each do |list| %>
-    <div class="card-trip">
-      <div class="card-trip-infos" style="background-image: url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>)">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category text-center" style="background-image: url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU') %>)">
         <div>
-          <h2><%= link_to "#{list.name}", list_path(list) %></h2>
+          <%= link_to "#{list.name}", list_path(list), class: "card-cover" %>
         </div>
-        <h2 class="card-trip-pricing"><%= link_to 'DELETE', list_path(list), data: {turbo_method: :delete, turbo_confirm: "Do you want to delete that list?"} %></h2>
+        <div id="x">
+          <%= link_to list_path(list), data: {turbo_method: :delete} do %>
+            <i class="fas fa-times"></i>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-  <%= render "form" %>
+    <% end %>
+    <%= render "form" %>
+  </div>
 </div>

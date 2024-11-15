@@ -5,6 +5,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @movies = Movie.order(title: :asc)
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
   end

@@ -1,0 +1,39 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D62727;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+  background-color: white;
+}
+
+#x {
+  position: absolute;
+  top: 0;
+  right: 8px;
+}
+
+.card-cover2 {
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+  display: flex;
+  margin-top: 4px;
+  justify-content: center;
+  align-items: center;
+  color: #D62727;
+  font-size: 16px;
+  font-weight: lighter;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: white;
+}
